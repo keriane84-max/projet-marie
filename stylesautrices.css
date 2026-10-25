@@ -1,0 +1,506 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 28px 36px 48px;
+    color: #802A15;
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+h1 {
+    margin: 0 0 16px;
+    color: #551000;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+}
+
+a {
+    color: #802A15;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* En-tetes : logo a gauche, titre ou navigation a droite. */
+.top,
+.charte-header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 18px;
+}
+
+.top > a,
+.charte-header > a {
+    display: block;
+    flex-shrink: 0;
+    width: 145px;
+}
+
+.top > a img,
+.charte-logo {
+    display: block;
+    width: 145px;
+    border: 5px solid #551000;
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(40, 32, 18, 0.2);
+}
+
+.top h1 {
+    flex: 1;
+    margin: 0;
+}
+
+.charte-header nav {
+    flex: 1;
+}
+
+.charte-header nav ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.charte-header nav a,
+.ad-button {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: #ffffff;
+    background-color: #802A15;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.charte-header nav a:hover,
+.charte-header nav a:focus,
+.ad-button:hover,
+.ad-button:focus {
+    background-color: #551000;
+}
+
+/* Contenu principal et publicite a droite sur grand ecran. */
+.content-layout,
+.charte-layout {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 28px;
+}
+
+.profiles,
+.charte-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.profiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    padding-top: 60px;
+}
+
+.profiles > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 190px;
+    max-width: 100%;
+    flex-shrink: 0;
+    padding: 18px 16px 16px;
+    border: 1px solid #D47F6A;
+    border-radius: 16px;
+    color: #802A15;
+    background-color: #FFBAAA;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 5px 14px rgba(40, 32, 18, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profiles > a:hover,
+.profiles > a:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(40, 32, 18, 0.18);
+}
+
+/* Cadres identiques : Flexbox centre la photo, overflow masque le surplus. */
+.portrait-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    max-width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 4px solid #551000;
+    border-radius: 50%;
+}
+
+.portrait-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.profiles > a p {
+    margin: 13px 0 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.advertisement {
+    flex: 0 0 240px;
+    max-width: 100%;
+    padding: 16px;
+    border: 2px solid #D47F6A;
+    border-radius: 16px;
+    color: #802A15;
+    background-color: #FFBAAA;
+    text-align: center;
+    box-shadow: 0 5px 14px rgba(40, 32, 18, 0.12);
+}
+
+.advertisement .ad-label {
+    margin: 0 0 12px;
+    color: #551000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.advertisement img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.advertisement h2 {
+    margin: 16px 0 8px;
+    color: #551000;
+    font-size: 1.35rem;
+}
+
+.advertisement p {
+    margin: 0 0 16px;
+}
+
+/* Bandeau lateral : Flexbox, image de fond et modele de boite du cours. */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 0 0 280px;
+    width: 280px;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.sidebar .advertisement {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: none;
+    width: 280px;
+    height: 280px;
+    padding: 16px;
+    color: #ffffff;
+    background: linear-gradient(rgba(85, 16, 0, 0.78), rgba(85, 16, 0, 0.78)), url('shetland1.jpg') center;
+    background-size: cover;
+    font-size: 0.875rem;
+}
+
+.sidebar .advertisement .ad-label,
+.sidebar .advertisement h2 {
+    color: #ffffff;
+}
+
+.sidebar .advertisement h2 {
+    margin: 0 0 8px;
+}
+
+.sidebar .ad-button {
+    background-color: #551000;
+    border: 1px solid #ffffff;
+}
+
+.sidebar .ad-button:hover,
+.sidebar .ad-button:focus {
+    background-color: #802A15;
+}
+
+.featured-article {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #D47F6A;
+    border-radius: 16px;
+    background-color: #fff5f2;
+    box-shadow: 0 5px 14px rgba(40, 32, 18, 0.1);
+}
+
+.featured-article h2 {
+    margin: 0 0 12px;
+    color: #551000;
+    font-size: 1.2rem;
+}
+
+.featured-article a {
+    display: block;
+    text-decoration: none;
+}
+
+.featured-article img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.featured-article h3 {
+    margin: 12px 0 8px;
+    font-size: 1.1rem;
+}
+
+.featured-article p {
+    margin: 0;
+}
+
+.featured-article a:hover h3,
+.featured-article a:focus h3 {
+    text-decoration: underline;
+}
+
+/* Categorie centree : couleurs, boite et typographie vues en cours. */
+.article-categorie {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 10px 16px;
+    background-color: #551000;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Photo de l'article : taille reduite et centrage horizontal. */
+.article-apercu img {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 20px;
+}
+
+.copyright {
+    margin-top: auto;
+    padding-top: 48px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* Responsive : contenu au-dessus de la publicite. */
+@media (max-width: 768px) {
+    .sidebar {
+        flex: none;
+        align-self: center;
+    }
+
+    .content-layout,
+    .charte-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .profiles,
+    .charte-content {
+        flex: none;
+        width: 100%;
+    }
+
+    .advertisement {
+        flex: none;
+        width: 280px;
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 22px 12px 36px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .top,
+    .charte-header {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .top h1 {
+        text-align: center;
+    }
+
+    .charte-header nav ol {
+        justify-content: center;
+    }
+
+    .profiles {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding-top: 24px;
+    }
+
+    .profiles > a {
+        width: 250px;
+    }
+}
+/* centrage du titre de l'article */
+.article-apercu h3 {
+    text-align: center;
+    margin-top: 16px;
+}
+/* barre qui separe le titre de l'article et le texte */
+.separation {
+    width: 100%;
+    height: 2px;
+    background-color: #551000;
+    margin: 16px 0;
+}
+
+/* Pied de page : Flexbox, couleurs et bordures vus en cours. */
+.site-footer {
+    margin-top: auto;
+    padding: 24px;
+    border-radius: 16px;
+    color: #ffffff;
+    background-color: #551000;
+    box-shadow: 0 5px 14px rgba(40, 32, 18, 0.18);
+}
+
+.charte-layout + .site-footer {
+    margin-top: 48px;
+}
+
+.footer-top,
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-bottom {
+    margin-top: 24px;
+    padding-top: 26px;
+    border-top: 2px solid #D47F6A;
+    font-size: 0.8rem;
+}
+
+.site-footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+    text-decoration: underline;
+}
+
+.footer-brand,
+.footer-nav,
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Zoom centre : transformations et overflow vus en cours. */
+.footer-logo-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.footer-logo-frame img {
+    display: block;
+    width: 100px;
+    height: auto;
+    flex-shrink: 0;
+    transform: scale(3.2);
+}
+
+.footer-brand p {
+    margin: 2px 0 0;
+    font-size: 0.75rem;
+}
+
+.site-footer .footer-back-top {
+    color: #551000;
+    background-color: #FFBAAA;
+    font-size: 1rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.site-footer .copyright {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-nav,
+    .footer-legal {
+        justify-content: center;
+    }
+
+    .site-footer .copyright {
+        text-align: center;
+    }
+}
+    .footer-bottom,
+    .footer-nav, {
+    justify-content: center;
+    text-align: center;
+}
