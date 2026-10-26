@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Articles - Kériane et Marie</title>
     <link rel="stylesheet" href="stylesautrices.css">
-
 </head>
 
 <body>
@@ -15,11 +14,11 @@
             <img class="charte-logo" src="logo.jpg" width="200" height="200" alt="Accueil du site de Kériane et Marie">
         </a>
 
-        <nav>
+        <nav aria-label="Navigation principale">
             <ol>
                 <li><a href="CHARTEGRAPHIQUE.html">ACCUEIL</a></li>
-                <li><a href="page2.html">ARTICLES</a></li>
-                <li><a href="CVdesautrices.html">CV</a></li>
+                <li><a href="page2.html" aria-current="page">ARTICLES</a></li>
+                <li><a href="page1.html">CV</a></li>
                 <li><a href="page3.html">À PROPOS</a></li>
                 <li><a href="page4.html">NOUS CONTACTER</a></li>
             </ol>
@@ -29,15 +28,70 @@
     <div class="charte-layout">
         <main class="charte-content">
             <h1>Articles</h1>
-            <p>Les articles seront ajoutés prochainement.</p>
+            <p>Découvrez nos articles sur les poneys Shetland. Cliquez sur une carte pour lire l'article complet.</p>
+
+            <section class="articles-grid" aria-label="Liste des articles">
+                <article class="article-card article-card--summary">
+                    <a class="article-card-link" href="article1.html">
+                        <figure class="article-figure">
+                            <img src="WALKShetland.jpg" alt="Poney Shetland dans son environnement naturel sur les îles Shetland">
+                            <figcaption>Photo : VisitScotland.</figcaption>
+                        </figure>
+                        <p class="article-categorie">ARTICLE 1</p>
+                        <p class="article-meta">Publié le <time datetime="2026-10-10">10 octobre 2026</time> · Par <span class="article-author">Marie Servais</span></p>
+                        <h2>Les origines du poney Shetland</h2>
+                        <p>Découvrez les origines écossaises du Shetland, son adaptation aux conditions difficiles et les caractéristiques qui font sa robustesse.</p>
+                        <span class="article-read-more">Lire l'article complet →</span>
+                    </a>
+                </article>
+
+                <article class="article-card article-card--summary">
+                    <a class="article-card-link" href="article2.html">
+                        <figure class="article-figure">
+                            <img src="BLACKShetland.jpg" alt="Poney Shetland noir dans un environnement naturel">
+                            <figcaption>Les différentes robes du poney Shetland.</figcaption>
+                        </figure>
+                        <p class="article-categorie">ARTICLE 2</p>
+                        <p class="article-meta">Publié le <time datetime="2026-10-17">17 octobre 2026</time> · Par <span class="article-author">Kériane Chakir</span></p>
+                        <h2>Les différentes robes du poney Shetland</h2>
+                        <p>Apprenez à reconnaître les principales robes du Shetland et découvrez comment son pelage évolue selon les saisons.</p>
+                        <span class="article-read-more">Lire l'article complet →</span>
+                    </a>
+                </article>
+
+                <article class="article-card article-card--summary">
+                    <a class="article-card-link" href="article3.html">
+                        <figure class="article-figure">
+                            <img src="KIDShetland.jpg" alt="Enfant brossant un poney Shetland lors d'une activité encadrée">
+                            <figcaption>Photo : Shetland Pony Club.</figcaption>
+                        </figure>
+                        <p class="article-categorie">ARTICLE 3</p>
+                        <p class="article-meta">Publié le <time datetime="2026-10-24">24 octobre 2026</time> · Par <span class="article-author">Marie Servais et Kériane Chakir</span></p>
+                        <h2>Le caractère du poney Shetland et les enfants</h2>
+                        <p>Découvrez le caractère vif et intelligent du Shetland, ses capacités d'apprentissage et les précautions avec les jeunes cavaliers.</p>
+                        <span class="article-read-more">Lire l'article complet →</span>
+                    </a>
+                </article>
+            </section>
         </main>
 
-        <aside class="advertisement">
-            <p class="ad-label">PUBLICITÉ</p>
-            <img src="shetland1.jpg" alt="Poney Shetland sur la plage">
-            <h2>Shetland Évasion</h2>
-            <p>Envie de nature et de liberté ? Découvrez nos balades à poney au bord de la mer.</p>
-            <a class="ad-button" href="page4.html">Nous contacter</a>
+        <aside class="sidebar">
+            <section class="advertisement">
+                <p class="ad-label">PUBLICITÉ FICTIVE</p>
+                <h2>Shetland Évasion</h2>
+                <p>Envie de nature et de liberté ? Découvrez nos balades à poney au bord de la mer.</p>
+                <a class="ad-button" href="page4.html">Nous contacter</a>
+            </section>
+
+            <article class="featured-article">
+                <h2>À la une</h2>
+                <a href="https://www.equirider.fr/race-cheval/shetland/">
+                    <img src="raceshetland.jpg" alt="Poney de race Shetland">
+                    <h3>Découvrez la race Shetland</h3>
+                    <p>Origines et particularités de ce petit poney.</p>
+                </a>
+                <a class="article-button" href="https://www.equirider.fr/race-cheval/shetland/">Lire</a>
+            </article>
         </aside>
     </div>
 

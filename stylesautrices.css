@@ -1,4 +1,23 @@
-* {
+/* Variables globales : modifier ici une couleur ou une dimension la met à jour
+   dans toute la feuille de style. */
+:root {
+    --color-ink: #802A15;
+    --color-deep: #551000;
+    --color-accent: #FFBAAA;
+    --color-border: #D47F6A;
+    --color-surface: #fff5f2;
+    --color-white: #ffffff;
+    --shadow: 0 5px 14px rgba(40, 32, 18, 0.16);
+    --radius: 16px;
+    --sidebar-width: 280px;
+}
+
+/* -------------------- Base -------------------- */
+/* Ces règles définissent le comportement commun à toutes les pages du site. */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -8,22 +27,35 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 28px 36px 48px;
-    color: #802A15;
-    background-color: #ffffff;
+    color: var(--color-ink);
+    background-color: var(--color-white);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5;
 }
 
 h1 {
     margin: 0 0 16px;
-    color: #551000;
+    color: var(--color-deep);
     font-size: 2.5rem;
     line-height: 1.2;
     overflow-wrap: break-word;
 }
 
+h2,
+h3 {
+    color: var(--color-deep);
+}
+
 a {
-    color: #802A15;
+    color: var(--color-ink);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
 }
 
 img {
@@ -31,34 +63,44 @@ img {
     height: auto;
 }
 
-/* En-tetes : logo a gauche, titre ou navigation a droite. */
-.top,
+/* -------------------- Header et navigation -------------------- */
+/* L'en-tête place le logo à gauche et les liens de navigation à droite. */
+
 .charte-header {
     display: flex;
     width: 100%;
     align-items: center;
-    gap: 18px;
+    gap: 8px;
+    margin: 0;
+    padding: 12px 36px;
+    border-radius: var(--radius);
+    background-color: var(--color-deep);
+    box-shadow: var(--shadow);
 }
 
-.top > a,
 .charte-header > a {
-    display: block;
-    flex-shrink: 0;
+    display: flex;
     width: 145px;
+    height: 145px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
-.top > a img,
 .charte-logo {
     display: block;
+    position: relative;
     width: 145px;
-    border: 5px solid #551000;
+    height: 145px;
+    border: 5px solid var(--color-accent);
     border-radius: 50%;
     box-shadow: 0 6px 18px rgba(40, 32, 18, 0.2);
-}
-
-.top h1 {
-    flex: 1;
-    margin: 0;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.7);
+    transform-origin: center;
 }
 
 .charte-header nav {
@@ -68,7 +110,9 @@ img {
 .charte-header nav ol {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -79,34 +123,42 @@ img {
     display: inline-block;
     padding: 10px 14px;
     border-radius: 8px;
-    color: #ffffff;
-    background-color: #802A15;
+    color: var(--color-deep);
+    background-color: var(--color-white);
     font-weight: 700;
     text-decoration: none;
 }
 
-.charte-header nav a:hover,
-.charte-header nav a:focus,
-.ad-button:hover,
-.ad-button:focus {
-    background-color: #551000;
+.charte-header nav a {
+    font-size: 1.1rem;
+    font-weight: 800;
 }
 
-/* Contenu principal et publicite a droite sur grand ecran. */
+.charte-header nav a:hover,
+.charte-header nav a:focus {
+    color: var(--color-white);
+    background-color: var(--color-deep);
+}
+
+/* -------------------- Structures principales -------------------- */
+/* Flexbox aligne le contenu principal et le bandeau latéral sur grand écran. */
+
 .content-layout,
 .charte-layout {
     display: flex;
     width: 100%;
     align-items: flex-start;
     gap: 40px;
-    margin-top: 28px;
+    margin-top: 48px;
 }
 
-.profiles,
-.charte-content {
+.charte-content,
+.profiles {
     flex: 1;
     min-width: 0;
 }
+
+/* Page de sélection des CV : les deux liens deviennent des cartes cliquables. */
 
 .profiles {
     display: flex;
@@ -117,21 +169,28 @@ img {
     padding-top: 60px;
 }
 
+.profiles-title {
+    flex-basis: 100%;
+    margin: 0 0 16px;
+    color: var(--color-deep);
+    text-align: left;
+}
+
 .profiles > a {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 190px;
     max-width: 100%;
     flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
     padding: 18px 16px 16px;
-    border: 1px solid #D47F6A;
-    border-radius: 16px;
-    color: #802A15;
-    background-color: #FFBAAA;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-ink);
+    background-color: var(--color-accent);
+    box-shadow: 0 5px 14px rgba(40, 32, 18, 0.1);
     text-align: center;
     text-decoration: none;
-    box-shadow: 0 5px 14px rgba(40, 32, 18, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -141,24 +200,22 @@ img {
     box-shadow: 0 10px 22px rgba(40, 32, 18, 0.18);
 }
 
-/* Cadres identiques : Flexbox centre la photo, overflow masque le surplus. */
 .portrait-frame {
     display: flex;
-    align-items: center;
-    justify-content: center;
     width: 120px;
     height: 120px;
     max-width: 100%;
     flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    border: 4px solid #551000;
+    border: 4px solid var(--color-deep);
     border-radius: 50%;
 }
 
 .portrait-frame img {
     display: block;
     width: 100%;
-    height: auto;
     flex-shrink: 0;
 }
 
@@ -168,35 +225,50 @@ img {
     font-weight: 700;
 }
 
-.advertisement {
-    flex: 0 0 240px;
+/* -------------------- Bandeau latéral -------------------- */
+/* Le bandeau contient la publicité carrée puis l'article mis en avant. */
+
+.sidebar {
+    display: flex;
+    width: var(--sidebar-width);
     max-width: 100%;
+    min-width: 0;
+    flex: 0 0 var(--sidebar-width);
+    flex-direction: column;
+    gap: 24px;
+    overflow-wrap: break-word;
+}
+
+.advertisement {
+    display: flex;
+    width: var(--sidebar-width);
+    /* Même largeur et même hauteur : la publicité reste carrée. */
+    height: var(--sidebar-width);
+    max-width: 100%;
+    flex: 0 0 var(--sidebar-width);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 16px;
-    border: 2px solid #D47F6A;
-    border-radius: 16px;
-    color: #802A15;
-    background-color: #FFBAAA;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-white);
+    background: linear-gradient(rgba(85, 16, 0, 0.78), rgba(85, 16, 0, 0.78)), url('shetland1.jpg') center / cover;
     text-align: center;
-    box-shadow: 0 5px 14px rgba(40, 32, 18, 0.12);
+    box-shadow: var(--shadow);
 }
 
 .advertisement .ad-label {
     margin: 0 0 12px;
-    color: #551000;
+    color: var(--color-white);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 2px;
 }
 
-.advertisement img {
-    display: block;
-    width: 100%;
-    border-radius: 10px;
-}
-
 .advertisement h2 {
-    margin: 16px 0 8px;
-    color: #551000;
+    margin: 0 0 8px;
+    color: var(--color-white);
     font-size: 1.35rem;
 }
 
@@ -204,80 +276,56 @@ img {
     margin: 0 0 16px;
 }
 
-/* Bandeau lateral : Flexbox, image de fond et modele de boite du cours. */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    flex: 0 0 280px;
-    width: 280px;
-    max-width: 100%;
-    min-width: 0;
-    overflow-wrap: break-word;
+.advertisement .ad-button {
+    border: 1px solid var(--color-white);
+    color: var(--color-deep);
+    background-color: var(--color-accent);
 }
 
-.sidebar .advertisement {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: none;
-    width: 280px;
-    height: 280px;
-    padding: 16px;
-    color: #ffffff;
-    background: linear-gradient(rgba(85, 16, 0, 0.78), rgba(85, 16, 0, 0.78)), url('shetland1.jpg') center;
-    background-size: cover;
-    font-size: 0.875rem;
-}
-
-.sidebar .advertisement .ad-label,
-.sidebar .advertisement h2 {
-    color: #ffffff;
-}
-
-.sidebar .advertisement h2 {
-    margin: 0 0 8px;
-}
-
-.sidebar .ad-button {
-    background-color: #551000;
-    border: 1px solid #ffffff;
-}
-
-.sidebar .ad-button:hover,
-.sidebar .ad-button:focus {
-    background-color: #802A15;
+.advertisement .ad-button:hover,
+.advertisement .ad-button:focus {
+    color: var(--color-white);
+    background-color: var(--color-ink);
 }
 
 .featured-article {
+    display: flex;
     width: 100%;
+    /* La hauteur minimale évite que la vignette soit écrasée par son contenu. */
+    min-height: var(--sidebar-width);
+    flex-direction: column;
+    justify-content: center;
     padding: 16px;
-    border: 1px solid #D47F6A;
-    border-radius: 16px;
-    background-color: #fff5f2;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: var(--color-surface);
     box-shadow: 0 5px 14px rgba(40, 32, 18, 0.1);
+    text-align: center;
 }
 
 .featured-article h2 {
     margin: 0 0 12px;
-    color: #551000;
+    color: var(--color-deep);
     font-size: 1.2rem;
 }
 
-.featured-article a {
+.featured-article > a:not(.article-button) {
     display: block;
+    color: var(--color-ink);
     text-decoration: none;
 }
 
 .featured-article img {
     display: block;
     width: 100%;
+    aspect-ratio: 16 / 9;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .featured-article h3 {
     margin: 12px 0 8px;
+    color: var(--color-deep);
     font-size: 1.1rem;
 }
 
@@ -285,33 +333,377 @@ img {
     margin: 0;
 }
 
-.featured-article a:hover h3,
-.featured-article a:focus h3 {
+.featured-article .article-button {
+    display: block;
+    width: max-content;
+    margin: 16px auto 0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: var(--color-white);
+    background-color: var(--color-ink);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.featured-article .article-button:hover,
+.featured-article .article-button:focus {
+    background-color: var(--color-deep);
+}
+
+.featured-article > a:not(.article-button):hover h3,
+.featured-article > a:not(.article-button):focus h3 {
     text-decoration: underline;
 }
 
-/* Categorie centree : couleurs, boite et typographie vues en cours. */
-.article-categorie {
-    display: block;
-    width: 180px;
-    max-width: 100%;
-    margin: 20px auto;
-    padding: 10px 16px;
-    background-color: #551000;
-    color: #ffffff;
-    font-weight: bold;
+/* -------------------- Articles de l'accueil -------------------- */
+/* Grid crée deux colonnes sur grand écran et une seule colonne sur mobile. */
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+/* Carte provisoire de la page Articles : la photo et le contenu pourront être
+   remplacés plus tard sans modifier la structure générale de la page. */
+.article-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+    color: var(--color-ink);
+    background-color: var(--color-surface);
+    box-shadow: 0 5px 14px rgba(40, 32, 18, 0.1);
+}
+
+/* Les cartes de la page Articles sont des liens : toute la carte est cliquable
+   et renvoie vers la page qui contient l'article complet. */
+.article-card--summary {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card--summary:hover,
+.article-card--summary:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 22px rgba(40, 32, 18, 0.18);
+}
+
+.article-card-link {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+}
+
+.article-card-link:hover h2,
+.article-card-link:focus h2 {
+    text-decoration: underline;
+}
+
+.article-card--summary .article-read-more {
+    margin-top: auto;
+    padding-top: 14px;
+    color: var(--color-deep);
+    font-weight: 800;
     text-align: center;
 }
 
-/* Photo de l'article : taille reduite et centrage horizontal. */
+.article-image-placeholder {
+    display: flex;
+    min-height: 150px;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--color-border);
+    border-radius: 18px;
+    color: var(--color-deep);
+    background-color: var(--color-accent);
+    font-weight: 700;
+    text-align: center;
+}
+
+.article-figure {
+    margin: 0;
+}
+
+.article-figure img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+.article-figure figcaption {
+    margin-top: 8px;
+    color: var(--color-deep);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.article-card .article-categorie {
+    margin: 18px auto 12px;
+}
+
+/* Métadonnées de l'article : la date et le nom de l'auteur sont visibles
+   sous la catégorie pour identifier rapidement chaque publication. */
+.article-meta {
+    margin: 0 0 14px;
+    color: var(--color-deep);
+    font-size: 0.85rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.article-author {
+    font-weight: 700;
+    font-style: normal;
+}
+
+.article-card h2 {
+    margin: 0 0 12px;
+    color: var(--color-deep);
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.article-card h3 {
+    margin: 24px 0 8px;
+    color: var(--color-deep);
+    font-size: 1.1rem;
+}
+
+.article-card--featured > p:not(.article-categorie) {
+    margin: 0 0 12px;
+}
+
+.article-card p:last-child {
+    margin: 0;
+}
+
+/* -------------------- Page d'article complet -------------------- */
+/* La page détaillée reprend la même charte avec une lecture plus confortable. */
+
+.article-detail {
+    width: 100%;
+    max-width: 900px;
+}
+
+.article-detail .article-figure {
+    margin: 24px 0;
+}
+
+.article-detail .article-figure img {
+    max-height: 520px;
+    aspect-ratio: 16 / 9;
+}
+
+.article-detail .article-meta {
+    margin: 0 0 24px;
+    text-align: left;
+}
+
+.article-detail h1 {
+    margin-bottom: 8px;
+}
+
+.article-detail h2 {
+    margin-top: 34px;
+    color: var(--color-deep);
+    font-size: 1.45rem;
+}
+
+.article-detail h3 {
+    margin-top: 28px;
+    color: var(--color-deep);
+    font-size: 1.2rem;
+}
+
+.article-detail p {
+    max-width: 78ch;
+}
+
+.article-back-link {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* Liens de partage : les lettres servent d'icônes simples et accessibles. */
+.article-share {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 32px 0 0;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--color-border);
+    list-style: none;
+}
+
+.article-share a {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--color-white);
+    background-color: var(--color-ink);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.article-share a:hover,
+.article-share a:focus {
+    background-color: var(--color-deep);
+}
+
+.article-all {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 24px;
+}
+
+.article-colonne {
+    display: grid;
+    grid-template-rows: 94px auto;
+    min-width: 0;
+}
+
+.article-colonne > h2,
+.article-colonne > .article-categorie {
+    display: flex;
+    height: 54px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.article-colonne:first-child > h2 {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.article-categorie {
+    display: flex;
+    width: 180px;
+    max-width: 100%;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 10px 16px;
+    color: var(--color-white);
+    background-color: var(--color-deep);
+    font-weight: 700;
+    text-align: center;
+}
+
+.article-colonne > .article-categorie {
+    justify-self: center;
+}
+
+/* Sur grand écran, le bandeau « Les plus consultés » est décalé vers l'axe
+   central du bandeau « DÉCOUVERTE ». Ce réglage conserve l'alignement visuel
+   entre les deux encadrements de la page d'accueil. */
+@media (min-width: 769px) {
+    .article-colonne:nth-child(2) > .article-categorie {
+        position: relative;
+        left: -50%;
+    }
+}
+
+.article-colonne > .article-apercu {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    margin: 0;
+}
+
 .article-apercu img {
     display: block;
     width: 100%;
     max-width: 480px;
-    height: auto;
+    height: 330px;
     margin: 20px auto;
     border-radius: 20px;
+    object-fit: cover;
 }
+
+.article-apercu h3 {
+    margin: 16px 0 0;
+    color: var(--color-deep);
+    text-align: center;
+}
+
+.separation {
+    width: 100%;
+    height: 2px;
+    margin: 16px 0;
+    border: 0;
+    background-color: var(--color-deep);
+}
+
+/* -------------------- Formulaire de contact -------------------- */
+/* Les champs sont empilés et leurs labels restent associés pour l'accessibilité. */
+
+.contact-form {
+    display: grid;
+    max-width: 650px;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-field label {
+    color: var(--color-deep);
+    font-weight: 700;
+}
+
+.contact-field input,
+.contact-field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-deep);
+    background-color: var(--color-white);
+    font: inherit;
+}
+
+.contact-field textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    justify-self: start;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 8px;
+    color: var(--color-white);
+    background-color: var(--color-ink);
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: var(--color-deep);
+}
+
+/* -------------------- Pied de page -------------------- */
+/* Le footer regroupe l'identité du site, les liens et le copyright. */
 
 .copyright {
     margin-top: auto;
@@ -320,87 +712,13 @@ img {
     text-align: center;
 }
 
-/* Responsive : contenu au-dessus de la publicite. */
-@media (max-width: 768px) {
-    .sidebar {
-        flex: none;
-        align-self: center;
-    }
-
-    .content-layout,
-    .charte-layout {
-        flex-direction: column;
-        align-items: center;
-        gap: 28px;
-    }
-
-    .profiles,
-    .charte-content {
-        flex: none;
-        width: 100%;
-    }
-
-    .advertisement {
-        flex: none;
-        width: 280px;
-    }
-}
-
-@media (max-width: 520px) {
-    body {
-        padding: 22px 12px 36px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    .top,
-    .charte-header {
-        flex-direction: column;
-        gap: 18px;
-    }
-
-    .top h1 {
-        text-align: center;
-    }
-
-    .charte-header nav ol {
-        justify-content: center;
-    }
-
-    .profiles {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding-top: 24px;
-    }
-
-    .profiles > a {
-        width: 250px;
-    }
-}
-/* centrage du titre de l'article */
-.article-apercu h3 {
-    text-align: center;
-    margin-top: 16px;
-}
-/* barre qui separe le titre de l'article et le texte */
-.separation {
-    width: 100%;
-    height: 2px;
-    background-color: #551000;
-    margin: 16px 0;
-}
-
-/* Pied de page : Flexbox, couleurs et bordures vus en cours. */
 .site-footer {
     margin-top: auto;
     padding: 24px;
-    border-radius: 16px;
-    color: #ffffff;
-    background-color: #551000;
-    box-shadow: 0 5px 14px rgba(40, 32, 18, 0.18);
+    border-radius: var(--radius);
+    color: var(--color-white);
+    background-color: var(--color-deep);
+    box-shadow: var(--shadow);
 }
 
 .charte-layout + .site-footer {
@@ -419,12 +737,12 @@ img {
 .footer-bottom {
     margin-top: 24px;
     padding-top: 26px;
-    border-top: 2px solid #D47F6A;
+    border-top: 2px solid var(--color-border);
     font-size: 0.8rem;
 }
 
 .site-footer a {
-    color: #ffffff;
+    color: var(--color-white);
     text-decoration: none;
 }
 
@@ -442,24 +760,27 @@ img {
     gap: 16px;
 }
 
-/* Zoom centre : transformations et overflow vus en cours. */
 .footer-logo-frame {
     display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100px;
     height: 100px;
     flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     border-radius: 50%;
 }
 
 .footer-logo-frame img {
     display: block;
+    position: relative;
     width: 100px;
-    height: auto;
+    height: 100px;
     flex-shrink: 0;
-    transform: scale(3.2);
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.7);
+    transform-origin: center;
 }
 
 .footer-brand p {
@@ -468,21 +789,56 @@ img {
 }
 
 .site-footer .footer-back-top {
-    color: #551000;
-    background-color: #FFBAAA;
-    font-size: 1rem;
     padding: 6px 10px;
     border-radius: 8px;
+    color: var(--color-deep);
+    background-color: var(--color-accent);
+    font-size: 1rem;
 }
 
 .site-footer .copyright {
     margin: 0;
     padding: 0;
-    color: #ffffff;
+    color: var(--color-white);
     text-align: left;
 }
 
+/* -------------------- Responsive -------------------- */
+/* À 768 px, le contenu passe au-dessus du bandeau ; à 520 px, l'en-tête
+   et les cartes s'empilent pour les petits écrans. */
+
 @media (max-width: 768px) {
+    .content-layout,
+    .charte-layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .charte-content,
+    .profiles {
+        width: 100%;
+        flex: none;
+    }
+
+    .article-all {
+        grid-template-columns: 1fr;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-colonne > .article-apercu img {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .sidebar {
+        flex: 0 0 auto;
+        align-self: center;
+    }
+
     .footer-top,
     .footer-bottom {
         flex-direction: column;
@@ -499,8 +855,35 @@ img {
         text-align: center;
     }
 }
-    .footer-bottom,
-    .footer-nav, {
-    justify-content: center;
-    text-align: center;
+
+@media (max-width: 520px) {
+    body {
+        padding: 22px 12px 36px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .charte-header {
+        width: auto;
+        flex-direction: column;
+        gap: 18px;
+        padding: 16px 12px;
+    }
+
+    .charte-header nav ol {
+        justify-content: center;
+    }
+
+    .profiles {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding-top: 24px;
+    }
+
+    .profiles > a {
+        width: 250px;
+    }
 }

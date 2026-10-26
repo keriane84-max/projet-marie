@@ -19,7 +19,7 @@
             <ol>
                 <li><a href="CHARTEGRAPHIQUE.html">ACCUEIL</a></li>
                 <li><a href="page2.html">ARTICLES</a></li>
-                <li><a href="CVdesautrices.html">CV</a></li>
+                <li><a href="page1.html">CV</a></li>
                 <li><a href="page3.html">À PROPOS</a></li>
                 <li><a href="page4.html">NOUS CONTACTER</a></li>
             </ol>
@@ -28,20 +28,52 @@
 
     <div class="charte-layout">
         <main class="charte-content">
-            <h1>Nous contacter</h1>
-            <p>Vous pouvez retrouver les coordonnées des autrices dans leurs CV.</p>
-            <ul>
-                <li><a href="CvdeKeriane.html">Consulter le CV de Kériane</a></li>
-                <li><a href="CVdeMarie.html">Consulter le CV de Marie</a></li>
-            </ul>
+            <h1>Contact</h1>
+            <p>Vous souhaitez nous poser une question ou échanger avec nous ? Marie Servais et Kériane Chakir sont à votre écoute. Remplissez le formulaire ci-dessous pour nous laisser un message.</p>
+
+            <form class="contact-form" method="post">
+                <div class="contact-field">
+                    <label for="nom-prenom">Nom et prénom</label>
+                    <input type="text" id="nom-prenom" name="nom-prenom" autocomplete="name" required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="objet">Objet</label>
+                    <input type="text" id="objet" name="objet" required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="7" required></textarea>
+                </div>
+
+                <button type="submit">Envoyer</button>
+            </form>
         </main>
 
-        <aside class="advertisement">
-            <p class="ad-label">PUBLICITÉ</p>
-            <img src="shetland1.jpg" alt="Poney Shetland sur la plage">
-            <h2>Shetland Évasion</h2>
-            <p>Envie de nature et de liberté ? Découvrez nos balades à poney au bord de la mer.</p>
-            <p>Publicité fictive réalisée pour le projet.</p>
+        <!-- BLOC PUBLICITÉ : ce bloc recopié dans les autres pages affiche la publicité à droite. -->
+        <aside class="sidebar">
+            <section class="advertisement">
+                <p class="ad-label">PUBLICITÉ FICTIVE</p>
+                <h2>Shetland Évasion</h2>
+                <p>Envie de nature et de liberté ? Découvrez nos balades à poney au bord de la mer.</p>
+                <a class="ad-button" href="page4.html">Nous contacter</a>
+            </section>
+
+            <article class="featured-article">
+                <h2>À la une</h2>
+                <a href="https://www.equirider.fr/race-cheval/shetland/">
+                    <img src="raceshetland.jpg" alt="Poney de race Shetland">
+                    <h3>Découvrez la race Shetland</h3>
+                    <p>Origines et particularités de ce petit poney.</p>
+                </a>
+                <a class="article-button" href="https://www.equirider.fr/race-cheval/shetland/">Lire</a>
+            </article>
         </aside>
     </div>
 

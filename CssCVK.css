@@ -1,0 +1,110 @@
+/* Base du CV de Kériane : couleurs, marges et police de secours. */
+body {
+    margin: 0;
+    padding: 24px;
+    color: #24351f;
+    background-color: #B7CB8A;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+/* Limite la largeur du contenu pour conserver une lecture confortable. */
+body > header,
+body > .profil,
+body > div:not(.profil) {
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Mise en valeur du nom et du métier dans l'en-tête. */
+.name {
+    font-size: 1.5em;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.profession {
+    font-size: 1.3em;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Les images restent adaptatives et gardent leur forme arrondie. */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 80%;
+}
+
+/* Bloc supérieur : photo et informations personnelles côte à côte. */
+.profil {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.profil img {
+    width: 180px;
+    object-fit: cover;
+}
+
+/* Titre principal du CV. */
+h1 {
+    margin: 10px 0 20px;
+    padding: 20px;
+    color: #ffffff;
+    background-color: #3e5b35;
+    text-align: center;
+}
+
+/* Les sections du parcours utilisent Flexbox pour séparer le titre du contenu. */
+#formation,
+#experience-professionnelle,
+#competences,
+#langues {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+#formation h2,
+#experience-professionnelle h2,
+#competences h2,
+#langues h2 {
+    flex: 0 0 240px;
+    margin: 0;
+}
+
+#formation ul,
+#experience-professionnelle ul,
+#competences ul,
+#langues ul {
+    margin: 0;
+}
+
+/* Sur mobile, chaque section et le bloc photo passent en colonne. */
+@media (max-width: 700px) {
+    body {
+        padding: 16px;
+    }
+
+    .profil,
+    #formation,
+    #experience-professionnelle,
+    #competences,
+    #langues {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .profil img {
+        width: 150px;
+    }
+
+    #formation h2,
+    #experience-professionnelle h2,
+    #competences h2,
+    #langues h2 {
+        flex-basis: auto;
+    }
+}

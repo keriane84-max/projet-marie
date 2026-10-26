@@ -1,16 +1,19 @@
 
-/* Mise en page inspirée du CV original de Marie Servais */
+/* CV de Marie Servais : mise en page en deux colonnes sur grand écran,
+   puis empilement vertical sur mobile. */
 
 * {
   box-sizing: border-box;
 }
 
+/* Réglages d'impression : le CV est prévu pour tenir sur une page A4. */
 @page {
   size: A4 portrait;
   margin: 0;
 }
 
 html,
+/* Base typographique et couleurs du CV. */
 body {
   margin: 0;
   padding: 0;
@@ -30,6 +33,7 @@ a {
   overflow-wrap: anywhere;
 }
 
+/* Conteneur principal : la colonne latérale et le contenu du CV. */
 .cv {
   display: flex;
   width: 210mm;
@@ -40,6 +44,7 @@ a {
   box-shadow: 0 4px 20px rgba(40, 32, 18, 0.18);
 }
 
+/* Colonne gauche : portrait, coordonnées, compétences et centres d'intérêt. */
 .sidebar {
   flex: 0 0 32%;
   padding: 8mm 6mm 6mm;
@@ -47,6 +52,7 @@ a {
   color: #fffdf7;
 }
 
+/* Le portrait est recadré en cercle sans déformer l'image. */
 .portrait {
   display: block;
   width: 34mm;
@@ -58,6 +64,7 @@ a {
   object-position: center 35%;
 }
 
+/* Sections de la colonne gauche. */
 .side-section {
   margin: 0 0 4.1mm;
 }
@@ -106,6 +113,7 @@ a {
   line-height: 1.42;
 }
 
+/* Colonne droite : titre, profil, formation et expériences. */
 .main-content {
   flex: 1;
   min-width: 0;
@@ -113,6 +121,7 @@ a {
   background-color: #f5f2ec;
 }
 
+/* En-tête du CV et intitulé professionnel. */
 .header {
   padding: 0 0 4mm;
   border-bottom: 2px solid #7b5b00;
@@ -138,6 +147,7 @@ a {
   font-weight: 600;
 }
 
+/* Sections principales du parcours. */
 .section {
   margin-top: 4.5mm;
 }
@@ -153,6 +163,7 @@ a {
   margin: 0 0 1.4mm;
 }
 
+/* Une entrée correspond à une formation ou une expérience. */
 .entry {
   margin-top: 2.8mm;
   break-inside: avoid;
@@ -192,6 +203,7 @@ a {
   line-height: 1.23;
 }
 
+/* Responsive : les deux colonnes deviennent une seule colonne. */
 @media (max-width: 760px) {
   .cv {
     flex-direction: column;
@@ -205,6 +217,7 @@ a {
   }
 }
 
+/* Version imprimée : retour à la composition A4 en deux colonnes. */
 @media print {
   html,
   body {
