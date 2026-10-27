@@ -159,18 +159,27 @@ img {
     min-width: 0;
 }
 
+.about-composition {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.75fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 4px;
+    margin: 12px 0;
+}
+
 .about-person {
     display: flex;
+    min-width: 0;
+    flex-direction: column;
     align-items: center;
     gap: 24px;
-    margin: 28px 0;
 }
 
 .about-portrait {
     display: block;
-    width: 140px;
-    height: 140px;
-    flex: 0 0 140px;
+    width: 96px;
+    height: 96px;
+    flex: 0 0 96px;
     overflow: hidden;
     border-radius: 50%;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -193,8 +202,18 @@ img {
     min-width: 0;
 }
 
+.about-text {
+    text-align: justify;
+}
+
 .about-person-text h2 {
     margin-top: 0;
+    text-align: center;
+}
+
+.about-person-text > p:last-child {
+    margin-top: 20px;
+    text-align: center;
 }
 
 .linkedin-link {
@@ -212,6 +231,20 @@ img {
 
 .linkedin-label {
     font-weight: 700;
+}
+
+.about-shetland-photo {
+    width: min(100%, 280px);
+    min-width: 0;
+    justify-self: center;
+    margin: 0;
+}
+
+.about-shetland-photo img {
+    display: block;
+    width: 300%;
+    height: 300%;
+    border-radius: var(--radius);
 }
 
 /* Page de sélection des CV : les deux liens deviennent des cartes cliquables. */
@@ -878,6 +911,16 @@ span.article-read-more:focus {
     .profiles {
         width: 100%;
         flex: none;
+    }
+
+    .about-composition {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .about-shetland-photo {
+        width: min(100%, 260px);
+        justify-self: center;
     }
 
     .about-portrait {
