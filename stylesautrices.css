@@ -390,6 +390,7 @@ img {
 .article-card--summary:focus-within {
     transform: translateY(-5px);
     box-shadow: 0 10px 22px rgba(40, 32, 18, 0.18);
+    flex-direction: column;
 }
 
 .article-card-link {
@@ -401,17 +402,18 @@ img {
     text-decoration: none;
 }
 
-.article-card-link:hover h2,
-.article-card-link:focus h2 {
-    text-decoration: underline;
-}
-
 .article-card--summary .article-read-more {
     margin-top: auto;
     padding-top: 14px;
     color: var(--color-deep);
     font-weight: 800;
     text-align: center;
+}
+
+span.article-read-more:hover,
+span.article-read-more:focus {
+    content: " →";
+    text-decoration: underline;
 }
 
 .article-image-placeholder {
