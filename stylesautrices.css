@@ -98,9 +98,10 @@ img {
     border-radius: 50%;
     box-shadow: 0 6px 18px rgba(40, 32, 18, 0.2);
     object-fit: cover;
-    object-position: center;
-    transform: scale(1.7);
+    object-position: 50% 60%;
+    transform: scale(2);
     transform-origin: center;
+    top: 17px;
 }
 
 .charte-header nav {
@@ -779,8 +780,9 @@ img {
     flex-shrink: 0;
     object-fit: cover;
     object-position: center;
-    transform: scale(1.7);
+    transform: scale(2);
     transform-origin: center;
+    top: 12.5px;
 }
 
 .footer-brand p {
