@@ -360,10 +360,10 @@ img {
 /* Grid crée deux colonnes sur grand écran et une seule colonne sur mobile. */
 
 .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
 }
 
 /* Carte provisoire de la page Articles : la photo et le contenu pourront être
