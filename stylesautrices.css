@@ -159,6 +159,61 @@ img {
     min-width: 0;
 }
 
+.about-person {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 28px 0;
+}
+
+.about-portrait {
+    display: block;
+    width: 140px;
+    height: 140px;
+    flex: 0 0 140px;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-portrait:hover,
+.about-portrait:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(40, 32, 18, 0.18);
+}
+
+.about-portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-person-text {
+    min-width: 0;
+}
+
+.about-person-text h2 {
+    margin-top: 0;
+}
+
+.linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.linkedin-icon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    color: #0a66c2;
+}
+
+.linkedin-label {
+    font-weight: 700;
+}
+
 /* Page de sélection des CV : les deux liens deviennent des cartes cliquables. */
 
 .profiles {
@@ -825,6 +880,12 @@ span.article-read-more:focus {
         flex: none;
     }
 
+    .about-portrait {
+        width: 120px;
+        height: 120px;
+        flex-basis: 120px;
+    }
+
     .article-all {
         grid-template-columns: 1fr;
     }
@@ -878,6 +939,16 @@ span.article-read-more:focus {
 
     .charte-header nav ol {
         justify-content: center;
+    }
+
+    .about-person {
+        gap: 14px;
+    }
+
+    .about-portrait {
+        width: 88px;
+        height: 88px;
+        flex-basis: 88px;
     }
 
     .profiles {
